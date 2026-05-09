@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UFO ARCHIVE - 未確認飛行物体研究資料室</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #001a3a;
+      background-image: url('data:image/gif;base64,R0lGODlhBAAEAIAAAO7u7gAAACH5BAAAAAAALAAAAAAEAAQAAAIFhI8JGgA7');
+      color: #ffffff;
+      font-family: "MS PGothic", "ＭＳ Ｐゴシック", Osaka, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #ffff66;
+    }
+
+    img {
+      border: 0;
+    }
+
+    .page {
+      width: 900px;
+      margin: 0 auto;
+      background: #003366;
+      border-left: 3px solid #99ccff;
+      border-right: 3px solid #99ccff;
+      box-shadow: 0 0 0 4px #001122;
+    }
+
+    .topline {
+      background: #000000;
+      color: #00ffcc;
+      text-align: center;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-bottom: 2px solid #00ccff;
+    }
+
+    .header {
+      background: linear-gradient(#001122, #003c78 45%, #001122);
+      padding: 18px 20px 14px;
+      border-bottom: 4px double #99ddff;
+      position: relative;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 2px;
+      color: #ccf6ff;
+      text-shadow: 2px 2px 0 #003366, 0 0 10px #66ccff;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #ccddff;
+    }
+
+    .counter {
+      position: absolute;
+      right: 18px;
+      top: 16px;
+      background: #000000;
+      color: #00ff66;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 6px 8px;
+      border: 1px solid #66ffcc;
+    }
+
+    .menu {
+      background: #001122;
+      border-top: 1px solid #99ccff;
+      border-bottom: 1px solid #99ccff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .menu a {
+      display: inline-block;
+      margin: 0 6px;
+      padding: 4px 10px;
+      background: #004488;
+      border: 1px outset #99ccff;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .menu a:hover {
+      background: #005fa3;
+      color: #ffff99;
+    }
+
+    .layout {
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .sidebar {
+      display: table-cell;
+      width: 200px;
+      vertical-align: top;
+      background: #00264d;
+      border-right: 2px solid #6688aa;
+      padding: 10px;
+    }
+
+    .content {
+      display: table-cell;
+      vertical-align: top;
+      padding: 14px;
+      background: #003b73;
+    }
+
+    .box {
+      background: #002244;
+      border: 2px ridge #99ccff;
+      margin-bottom: 12px;
+    }
+
+    .box-title {
+      background: linear-gradient(#0066aa, #003366);
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 6px 8px;
+      border-bottom: 1px solid #99ccff;
+    }
+
+    .box-body {
+      padding: 10px;
+      font-size: 13px;
+      color: #e8f3ff;
+    }
+
+    .notice {
+      color: #ffff99;
+      font-size: 12px;
+    }
+
+    .mainvisual {
+      background: #001122;
+      border: 2px groove #99ccff;
+      padding: 14px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .hero-image {
+      height: 220px;
+      border: 2px inset #99ccff;
+      background:
+        radial-gradient(circle at 50% 28%, #ffffff 0, #ccf6ff 8px, #88ddff 16px, transparent 34px),
+        radial-gradient(circle at 35% 70%, rgba(255,255,255,0.35) 0, transparent 2px),
+        radial-gradient(circle at 62% 58%, rgba(255,255,255,0.45) 0, transparent 2px),
+        radial-gradient(circle at 74% 25%, rgba(255,255,255,0.35) 0, transparent 2px),
+        linear-gradient(#000814, #001f40 60%, #000814);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 26%;
+      width: 120px;
+      height: 28px;
+      margin-left: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 40%, #dddddd 0, #999999 40%, #555555 75%, #222222 100%);
+      box-shadow: 0 0 18px rgba(180,230,255,0.8);
+    }
+
+    .hero-image:after {
+      content: "!!! PHOTO ANALYSIS PENDING !!!";
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      color: #ff6666;
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #000000;
+    }
+
+    h2.section {
+      margin: 0 0 8px;
+      padding: 5px 8px;
+      font-size: 18px;
+      color: #ffffff;
+      background: #005599;
+      border-left: 8px solid #99ddff;
+      border-bottom: 2px solid #001122;
+    }
+
+    h3 {
+      margin: 16px 0 6px;
+      font-size: 15px;
+      color: #ffffcc;
+      border-bottom: 1px dashed #99ccff;
+      padding-bottom: 3px;
+    }
+
+    ul.linklist {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    ul.linklist li {
+      margin-bottom: 6px;
+    }
+
+    .marquee-wrap {
+      background: #000000;
+      color: #ff9999;
+      border: 1px solid #ff3333;
+      padding: 6px 8px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .table-like {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .table-like th,
+    .table-like td {
+      border: 1px solid #88aacc;
+      padding: 6px;
+      vertical-align: top;
+    }
+
+    .table-like th {
+      background: #004b80;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .quote {
+      border: 1px dashed #ccccff;
+      background: #002b55;
+      padding: 10px;
+      margin: 10px 0;
+      color: #ccf0ff;
+    }
+
+    .footer {
+      background: #000c1c;
+      color: #cccccc;
+      text-align: center;
+      font-size: 12px;
+      padding: 18px 10px 24px;
+      border-top: 2px solid #6699cc;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #ccddee;
+    }
+
+    .banner {
+      display: inline-block;
+      background: #000000;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      padding: 3px 8px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    @media screen and (max-width: 940px) {
+      .page {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+      }
+
+      .layout,
+      .sidebar,
+      .content {
+        display: block;
+        width: auto;
+      }
+
+      .sidebar {
+        border-right: none;
+        border-bottom: 2px solid #6688aa;
+      }
+
+      .counter {
+        position: static;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topline">Welcome to UFO ARCHIVE... Japanese Unidentified Flying Object Research Page</div>
+
+    <div class="header">
+      <h1 class="title">UFO ARCHIVE</h1>
+      <div class="subtitle">未確認飛行物体研究資料室 / since 2002</div>
+      <div class="counter">TOTAL : 00012874</div>
+      <div class="banner">Best viewed with 1024x768</div>
+    </div>
+
+    <div class="menu">
+      <a href="#about">UFOとは</a>
+      <a href="#features">特徴</a>
+      <a href="#cases">目撃事例</a>
+      <a href="#hypotheses">仮説</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="layout">
+      <div class="sidebar">
+        <div class="box">
+          <div class="box-title">■ SITE MENU</div>
+          <div class="box-body">
+            <ul class="linklist">
+              <li><a href="#about">UFOとは何か</a></li>
+              <li><a href="#features">代表的特徴</a></li>
+              <li><a href="#cases">目撃パターン</a></li>
+              <li><a href="#hypotheses">各種仮説</a></li>
+              <li><a href="#articles">記事一覧</a></li>
+              <li><a href="#faq">よくある質問</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">■ UPDATE INFO</div>
+          <div class="box-body small">
+            2002/11/03 サイト公開<br>
+            2003/01/14 目撃事例追加<br>
+            2003/02/02 仮説ページ更新<br>
+            2003/05/26 FAQ追加<br>
+            2003/07/08 記事一覧更新
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">■ CAUTION</div>
+          <div class="box-body notice">
+            このサイトは未確認飛行現象に関する資料整理および考察を目的としています。<br>
+            特定の説を断定するものではありません。
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">■ WEBMASTER COMMENT</div>
+          <div class="box-body small">
+            夜空で見た光を、ただの見間違いで済ませるのは簡単です。<br>
+            しかし、説明できない記録が積み重なる時、そこには別の輪郭が見えてくるのかもしれません。
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="marquee-wrap">
+          <marquee behavior="scroll" direction="left" scrollamount="4">最新メモ：未確認飛行現象は「宇宙人の乗り物」とは限りません。まずは未確認である、という一点から考える必要があります。</marquee>
+        </div>
+
+        <div class="mainvisual">
+          <div class="hero-image"></div>
+          <p class="small">空に現れるのは、光だけとは限らない。</p>
+        </div>
+
+        <h2 id="about" class="section">UFOとは何か</h2>
+        <p>
+          UFOとは <strong>Unidentified Flying Object</strong> の略であり、日本語では「未確認飛行物体」と訳されます。
+          ここで重要なのは、<strong>UFO = 宇宙人の乗り物</strong> ではないということです。
+        </p>
+        <p>
+          実際には、UFOとして報告された現象の多くが、航空機、人工衛星、気球、ドローン、レンズ反射、気象現象などで説明されることがあります。
+          しかし一方で、観測条件や映像、証言を踏まえても、なお十分に説明しきれない事例が残ることもあります。
+        </p>
+        <div class="quote">
+          「記録はある。だが、正体はまだない。」<br>
+          その曖昧さそのものが、UFOというテーマの核心なのかもしれません。
+        </div>
+
+        <h2 id="features" class="section">UFO現象の代表的な特徴</h2>
+        <h3>1. 不規則な動き</h3>
+        <p>通常の航空機では考えにくい急停止、急旋回、静止からの急加速などが証言されることがあります。</p>
+
+        <h3>2. 無音での移動</h3>
+        <p>近距離で目撃されたにもかかわらず、エンジン音や回転音が聞こえなかったという報告があります。</p>
+
+        <h3>3. 強い発光</h3>
+        <p>白、青、赤、橙などの光を放ちながら移動する例があり、形より先に光だけが記憶に残るケースもあります。</p>
+
+        <h3>4. 形状の曖昧さ</h3>
+        <p>円盤型、三角形、葉巻型、球体など報告はさまざまで、距離や発光の影響で輪郭が判別できない場合も少なくありません。</p>
+
+        <table class="table-like" id="cases">
+          <tr>
+            <th colspan="2">代表的な目撃パターン</th>
+          </tr>
+          <tr>
+            <th width="180">夜空に静止する光</th>
+            <td>もっとも多い報告のひとつ。星や惑星、遠方の航空機で説明できる場合もあるが、規則性のない動きが目撃者に違和感を残す。</td>
+          </tr>
+          <tr>
+            <th>編隊のように並ぶ発光体</th>
+            <td>複数の光点が列をなすように移動する現象。人工衛星群との混同が起きやすい一方で、古い時代の記録にも類似報告が見られる。</td>
+          </tr>
+          <tr>
+            <th>低空を無音で横切る物体</th>
+            <td>黒い影、三角形のシルエットなどが音もなく頭上を移動したというタイプ。恐怖体験として語られることが多い。</td>
+          </tr>
+          <tr>
+            <th>急加速して消える発光体</th>
+            <td>静止していた光が、次の瞬間には高速で移動して消える。短時間のため、映像には残りにくい。</td>
+          </tr>
+        </table>
+
+        <h2 id="hypotheses" class="section">UFOは何なのか</h2>
+        <h3>誤認・見間違い説</h3>
+        <p>もっとも現実的な見方です。天体、航空機、人工物、気象現象、暗所での錯覚などによって「説明不能」に見える場合があります。</p>
+
+        <h3>軍事・実験機説</h3>
+        <p>一般に公開されていない技術や試験機が、UFOとして目撃される可能性を指摘する考え方です。</p>
+
+        <h3>心理・知覚説</h3>
+        <p>曖昧な対象に意味を見出そうとする人間の認知傾向によって、実際以上に異常なものとして記憶される可能性があります。</p>
+
+        <h3>未知の現象説</h3>
+        <p>既知の分類では十分に整理できない現象が存在する可能性を想定する見方です。ただし、その正体は分かっていません。</p>
+
+        <h2 id="articles" class="section">記事タイトル案</h2>
+        <ul class="linklist">
+          <li><a href="#">UFOとは何か？ 言葉の意味と誤解されやすいポイント</a></li>
+          <li><a href="#">夜空の光はなぜ“異常”に見えるのか</a></li>
+          <li><a href="#">三角形UFOの報告が多い理由</a></li>
+          <li><a href="#">UFO目撃談に共通する5つの特徴</a></li>
+          <li><a href="#">説明できるUFO、説明できないUFO</a></li>
+          <li><a href="#">人はなぜ未確認現象を信じるのか</a></li>
+        </ul>
+
+        <h2 id="faq" class="section">よくある質問</h2>
+        <h3>Q. UFOは宇宙人の乗り物なんですか？</h3>
+        <p>A. そうとは限りません。UFOはあくまで「未確認飛行物体」であり、正体が特定されていない状態を指します。</p>
+
+        <h3>Q. 写真や動画があれば本物といえますか？</h3>
+        <p>A. それだけでは断定できません。撮影条件、画質、距離、反射、編集の可能性など、検討すべき点が多くあります。</p>
+
+        <h3>Q. 今でもUFOは目撃されていますか？</h3>
+        <p>A. はい。ただし、その多くは誤認や未検証情報を含むため、慎重な見方が必要です。</p>
+
+        <h3>Q. このサイトはUFOの実在を断定していますか？</h3>
+        <p>A. 断定していません。このサイトは、未確認飛行現象に関する記録や考察を中立的に整理することを目的としています。</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Copyright(c) 2002-2003 UFO ARCHIVE All Rights Reserved.</div>
+      <div>このサイトは未確認飛行現象に関する情報整理および演出的表現を含みます。</div>
+    </div>
+  </div>
+</body>
+</html>
